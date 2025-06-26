@@ -672,10 +672,11 @@ export class PhotometryPanelComponent implements AfterViewInit, OnDestroy, OnIni
 
     // events
     this.onRemoveAllSources$.pipe(
-      withLatestFrom(this.sources$),
       takeUntil(this.destroy$)
     ).subscribe(
-      ([event, sources]) => {
+      (event) => {
+        //remove all sources,  even those from other files
+        let sources = this.store.selectSnapshot(SourcesState.getSources);
         this.store.dispatch(new RemoveSources(sources.map(s => s.id)));
       }
     )

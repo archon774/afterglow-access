@@ -326,6 +326,13 @@ export class PhotometryState {
         });
 
         let sources = this.store.selectSnapshot(SourcesState.getSources);
+
+        //only include sources that match the coord mode
+        let coordMode = this.store.selectSnapshot(SourceCatalogState.getConfig).coordMode;
+        sources = sources.filter((source) => {
+            return source.posType == coordMode
+        });
+
         let photometryJobSettings = toPhotometryJobSettings(settings);
         let layerIds = state.config.batchPhotFormData.selectedLayerIds;
 
