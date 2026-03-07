@@ -58,6 +58,10 @@
         <mat-label i18n>High</mat-label>
         <input matInput formControlName="high" type="number" />
       </mat-form-field>
+      <mat-form-field appearance="outline" [hidden]="stackForm.value?.rejection != 'chauvenet'" style="margin-left: 10px">
+        <mat-label i18n>nuCol</mat-label>
+        <input matInput formControlName="nuCol" type="number" />
+      </mat-form-field>
     </div>
 
     <div class="flex flex-row gap-5">

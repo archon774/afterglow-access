@@ -47,6 +47,7 @@ const stackingDefaultState: StackingStateModel = {
         percentile: 50,
         low: 0,
         high: 0,
+        nuCol: 0,
         equalizeAdditive: false,
         equalizeOrder: 0,
         equalizeMultiplicative: false,

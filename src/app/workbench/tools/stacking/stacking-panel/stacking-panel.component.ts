@@ -49,6 +49,7 @@ export class StackingPanelComponent implements OnInit {
     percentile: new FormControl(50, { validators: [Validators.required, isNumber, greaterThan(0)] }),
     low: new FormControl('', { validators: [Validators.required, isNumber, greaterThan(0, true)] }),
     high: new FormControl('', { validators: [Validators.required, isNumber, greaterThan(0, true)] }),
+    nuCol: new FormControl('', {validators: [Validators.required, isNumber, greaterThan(0, true)] }),
     propagateMask: new FormControl(''),
     equalizeAdditive: new FormControl(''),
     equalizeOrder: new FormControl('', { validators: [Validators.required, isNumber, greaterThan(0, true)] }),
@@ -131,6 +132,11 @@ export class StackingPanelComponent implements OnInit {
       this.stackForm.get('low').disable({ emitEvent: false });
     }
 
+    if (rejection === 'chauvenet') {
+      this.stackForm.get('nuCol').enable({ emitEvent: false });
+    } else {
+      this.stackForm.get('nuCol').disable({ emitEvent: false });
+      }
     let equalizeMultiplicative = this.stackForm.get('equalizeMultiplicative').value;
     if (equalizeMultiplicative) {
       this.stackForm.get('multiplicativePercentile').enable({ emitEvent: false });
@@ -212,6 +218,7 @@ export class StackingPanelComponent implements OnInit {
       smartStacking: data.smartStacking,
       lo: data.low,
       hi: data.high,
+      nuCol: data.nuCol,
       propagateMask: showPropagateMask ? data.propagateMask : false,
       equalizeAdditive: data.equalizeAdditive,
       equalizeOrder: data.equalizeOrder,

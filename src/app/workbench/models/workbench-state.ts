@@ -32,6 +32,7 @@ export interface StackFormData {
   percentile?: number;
   low?: number;
   high?: number;
+  nuCol?: number;
   equalizeAdditive: boolean;
   equalizeOrder: number;
   equalizeMultiplicative: boolean;

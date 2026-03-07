@@ -14,6 +14,7 @@ export interface StackSettings {
   smartStacking: 'none' | 'SNR' | 'sharpness'
   lo?: number;
   hi?: number;
+  nuCol?: number;
   propagateMask: boolean;
   equalizeAdditive: boolean;
   equalizeOrder: number;
