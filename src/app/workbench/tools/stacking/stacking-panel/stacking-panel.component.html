@@ -36,7 +36,7 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline" style="width: 300px">
+      <mat-form-field appearance="outline">
         <mat-label i18n>Rejection</mat-label>
         <mat-select formControlName="rejection">
           <mat-option value="none" i18n>None</mat-option>
@@ -46,6 +46,10 @@
           <mat-option value="sigclip" i18n>sigclip</mat-option>
           <mat-option value="rcr" i18n>rcr</mat-option>
         </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" [hidden]="stackForm.value?.rejection != 'chauvenet'" style="margin-left: 10px">
+        <mat-label i18n>nuCol</mat-label>
+        <input matInput formControlName="nuCol" type="number" />
       </mat-form-field>
     </div>
 
@@ -57,10 +61,6 @@
       <mat-form-field appearance="outline" style="margin-left: 10px">
         <mat-label i18n>High</mat-label>
         <input matInput formControlName="high" type="number" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" [hidden]="stackForm.value?.rejection != 'chauvenet'" style="margin-left: 10px">
-        <mat-label i18n>nuCol</mat-label>
-        <input matInput formControlName="nuCol" type="number" />
       </mat-form-field>
     </div>
 
